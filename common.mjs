@@ -55,4 +55,8 @@ for (const day of data) {
     const date = calculateDate(day, year);
     if (date) {
     const key = `${year}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-    res
+    result[key] = day.name;
+    }
+}
+return result;
+}
