@@ -1,4 +1,3 @@
-import { get } from "node:http";
 import { getDates, getCommemorativeDatesForYear } from "./common.mjs";
 import daysData from "./days.json" with { type: "json" };
 import assert from "node:assert";
@@ -41,11 +40,11 @@ describe("getCommemorativeDatesForYear()", () => {
 
     const y2025 = getCommemorativeDatesForYear(2025, daysData);
     assert.strictEqual(y2025["2025-10-14"], "Ada Lovelace Day");
+  });
 
     test("International Binturong Day on correct dates",()=>{
       const y2026=getCommemorativeDatesForYear(2026,daysData);
       assert.strictEqual(y2026["2026-05-09"],"International Binturong Day");
-    })
   });
 });
 
