@@ -62,14 +62,14 @@ calendar.innerHTML = "";
 
 const firstDay = new Date(year, month, 1);
 
-  // We want Monday=0 ... Sunday=6
+  
 const startDay = (firstDay.getDay() + 6) % 7;
 
 const daysInMonth = new Date(year, month + 1, 0).getDate();
 const monthName = new Date(year, month).toLocaleString("en-GB", { month: "long" });
 document.getElementById("current-month").textContent = `${monthName} ${year}`;
 
-  // Prepare commemorative dates as before
+  
 const commemorativeDatesArr = Object.entries(
         getCommemorativeDatesForYear(year, daysData)
     ).map(([iso, name]) => ({
@@ -81,7 +81,7 @@ const table = document.createElement("table");
 table.style.borderCollapse = "collapse";
 table.style.width = "100%";
 
-  // Weekday headers (Monday first)
+
 const headerRow = document.createElement("tr");
 ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].forEach(day => {
     const th = document.createElement("th");
@@ -93,7 +93,7 @@ const headerRow = document.createElement("tr");
 });
 table.appendChild(headerRow);
 
-  let date = 1 - startDay; // start with negative or zero for empty before first day
+  let date = 1 - startDay; 
 
 for (let week = 0; week < 6; week++) {
     const row = document.createElement("tr");
@@ -127,7 +127,7 @@ for (let week = 0; week < 6; week++) {
         }
         });
     } else {
-        // empty cell before 1st or after last day
+        
         cell.textContent = "";
     }
 
@@ -137,7 +137,7 @@ for (let week = 0; week < 6; week++) {
 
     table.appendChild(row);
 
-    // Stop creating rows once all days rendered
+    
     if (date > daysInMonth) break;
 }
 
